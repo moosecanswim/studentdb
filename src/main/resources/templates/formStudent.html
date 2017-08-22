@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+    <meta charset="UTF-8"/>
+    <title>Student Form</title>
+    <th:block th:replace="base::header"></th:block>
+</head>
+<body>
+    <th:block th:replace="base::navigation"></th:block>
+        <div class="container">
+            <form class="well form-horizontal"
+                    action="#"
+                    th:action="@{/addStudent}"
+                    th:object="${aStudent}">
+                <legend>Student Form</legend>
+                <fieldset>
+                    <input type="hidden" th:field="*{id}"/>
+
+                    <!--first name-->
+                    <div class="form-group">
+                        <label class="col-md-4 control-label"></label>
+                        <div class="col-md-4 inputGroupContainer">
+                            <div class="input-group">
+                                <input th:type="text" th:field="*{firstName}" placeholder="First Name"/><br />
+                                <span th:if="${#fields.hasErrors('firstName')}"
+                                      th:errors="*{firstName}"></span><br />
+                            </div>
+                        </div>
+                    </div>
+                    <!--last name-->
+                    <div class="form-group">
+                        <label class="col-md-4 control-label"></label>
+                        <div class="col-md-4 inputGroupContainer">
+                            <div class="input-group">
+                                <input th:type="text" th:field="*{lastName}" placeholder="Last Name"/><br />
+                                <span th:if="${#fields.hasErrors('lastName')}"
+                                      th:errors="*{lastName}"></span><br />
+                            </div>
+                        </div>
+                    </div>
+                    <!--phone number-->
+                    <div class="form-group">
+                        <label class="col-md-4 control-label"></label>
+                        <div class="col-md-4 inputGroupContainer">
+                            <div class="input-group">
+                                <input th:type="text" th:field="*{phoneNumber}" placeholder="Phone Number"/><br />
+                                <span th:if="${#fields.hasErrors('phoneNumber')}"
+                                      th:errors="*{phoneNumber}"></span><br />
+                            </div>
+                        </div>
+                    </div>
+                    <!--email-->
+                    <div class="form-group">
+                        <label class="col-md-4 control-label"></label>
+                        <div class="col-md-4 inputGroupContainer">
+                            <div class="input-group">
+                                <input th:type="text" th:field="*{email}" placeholder="Email"/><br />
+                                <span th:if="${#fields.hasErrors('email')}"
+                                      th:errors="*{email}"></span><br />
+                            </div>
+                        </div>
+                    </div>
+                    <!--school-->
+                    <div class="form-group">
+                        <label class="col-md-4 control-label"></label>
+                        <div class="col-md-4 inputGroupContainer">
+                            <div class="input-group">
+                                <input th:type="text" th:field="*{school}" placeholder="School"/><br />
+                                <span th:if="${#fields.hasErrors('school')}"
+                                      th:errors="*{school}"></span><br />
+                            </div>
+                        </div>
+                    </div>
+                    <!--buttons-->
+                    <div class="form-group">
+                        <div class="col-md-4 inputGroupContainer">
+                            <button type="submit" value="Add Student" class="btn"></button>
+                            <button type="reset" value="Clear Form" class="btn btn-primary"></button>
+                        </div>
+                    </div>
+
+
+                </fieldset>
+            </form>
+        </div>
+    <th:block th:replace="base::footer"></th:block>
+</body>
+</html>
