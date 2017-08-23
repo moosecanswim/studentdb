@@ -34,4 +34,8 @@ public class MainController {
         studentRepository.save(aStudent);
         return "redirect:/";
     }
+    @RequestMapping("/login")
+    public String login(){
+        return "login";
+    }
 }
