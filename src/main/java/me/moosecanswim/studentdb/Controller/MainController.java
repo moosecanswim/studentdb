@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.validation.Valid;
@@ -37,5 +38,26 @@ public class MainController {
     @RequestMapping("/login")
     public String login(){
         return "login";
+    }
+    @RequestMapping("/showAll")
+    public String showAll(Model toSend){
+        toSend.addAttribute("studentList", studentRepository.findAll());
+        return "showAll";
+    }
+    @RequestMapping("/delete/{id}")
+    public String delete(@PathVariable("id") long id){
+        studentRepository.delete(id);
+        return "redirect:/showAll";
+    }
+    @RequestMapping("/update/{id}")
+    public String update(@PathVariable("id") long id, Model toSend){
+        toSend.addAttribute("aStudent",studentRepository.findOne(id));
+
+        return "formStudent";
+    }
+    @RequestMapping("/index")
+    public String newPage(Model toSend){
+        toSend.addAttribute("aStudent", new Student());
+        return "index";
     }
 }

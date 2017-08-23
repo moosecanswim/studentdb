@@ -10,10 +10,13 @@
         <div class="container">
             <form class="well form-horizontal"
                     action="#"
-                    th:action="@{/addStudent}"
-                    th:object="${aStudent}">
+                    th:action="@{/}"
+                    th:object="${aStudent}"
+                    method="post">
                 <legend>Student Form</legend>
                 <fieldset>
+
+                    <!--hidden id fiend-->
                     <input type="hidden" th:field="*{id}"/>
 
                     <!--first name-->
@@ -84,6 +87,7 @@
                 </fieldset>
             </form>
         </div>
+
     <th:block th:replace="base::footer"></th:block>
 </body>
 </html>

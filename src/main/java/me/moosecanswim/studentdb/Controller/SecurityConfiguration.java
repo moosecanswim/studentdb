@@ -16,8 +16,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .anyRequest().authenticated()
                 .and()
                 .formLogin().loginPage("/login").permitAll()
-                .and()
-                .httpBasic();
+                .defaultSuccessUrl("/");
+
     }
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception{

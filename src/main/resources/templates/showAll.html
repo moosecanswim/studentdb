@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+    <meta charset="UTF-8"/>
+    <title>All Students</title>
+    <th:block th:replace="base::header"></th:block>
+</head>
+<body>
+    <th:block th:replace="base::navigation"></th:block>
+    <div class="container">
+        <h2>Admin</h2>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Students
+            </div>
+            <table class="table">
+                <tr>
+                    <th><strong>Id</strong></th>
+                    <th><strong>First Name</strong></th>
+                    <th><strong>Last Name</strong></th>
+                    <th><strong>Email</strong></th>
+                    <th><strong>Phone Number</strong></th>
+                    <th><strong>School</strong></th>
+                    <th><strong>Action</strong></th>
+                </tr>
+                <tr th:each="i : ${studentList}">
+                    <td th:text="*{i.id}"></td>
+                    <td th:text="*{i.firstName}"></td>
+                    <td th:text="*{i.lastName}"></td>
+                    <td th:text="*{i.email}"></td>
+                    <td th:text="*{i.phoneNumber}"></td>
+                    <td th:text="*{i.school}"></td>
+                    <td> <a th:href="@{update/{id} (id=${i.id})}">Update</a>- <a th:href="@{delete/{id} (id=${i.id})}">Delete</a></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <th:block th:replace="base::footer"></th:block>
+</body>
+</html>

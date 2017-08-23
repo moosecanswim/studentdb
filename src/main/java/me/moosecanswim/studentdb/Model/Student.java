@@ -1,17 +1,23 @@
 package me.moosecanswim.studentdb.Model;
 
+import com.sun.istack.internal.Nullable;
+
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
 public class Student {
-
+    @GeneratedValue(strategy= GenerationType.AUTO)
     @Id
     private long id;
     private String firstName;
     private String lastName;
     private String email;
+    @Nullable
     private String phoneNumber;
+    @Nullable
     private String school;
 
     public long getId() {

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, shrink-to-fit=no, initial-scale=1"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+
+    <title>Simple Sidebar - Start Bootstrap Template</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    <link href="css/simple-sidebar.css" rel="stylesheet"/>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                    <a href="#">
+                        Start Bootstrap
+                    </a>
+                </li>
+                <li>
+                    <a href="/">Add Student</a>
+                </li>
+                <li>
+                    <a href="/showAll">Show All</a>
+                </li>
+                <li>
+                    <a href="#">Search*</a>
+                </li>
+                <li>
+                    <a href="#">Events*</a>
+                </li>
+                <li>
+                    <a href="#">About*</a>
+                </li>
+                <li>
+                    <a href="#">Services*</a>
+                </li>
+                <li>
+                    <a href="#">Contact*</a>
+                </li>
+            </ul>
+        </div>
+        <!-- /#sidebar-wrapper -->
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1>Simple Sidebar</h1>
+                        <p>This template has a responsive menu toggling system. The menu will appear collapsed on smaller screens, and will appear non-collapsed on larger screens. When toggled using the button below, the menu will appear/disappear. On small screens, the page content will be pushed off canvas.</p>
+                        <p>Make sure to keep all page content within the <code>#page-content-wrapper</code>.</p>
+                        <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a>
+
+
+
+                        <div class="container">
+                            <form class="well form-horizontal"
+                                  action="#"
+                                  th:action="@{/}"
+                                  th:object="${aStudent}"
+                                  method="post">
+                                <legend>Student Form</legend>
+                                <fieldset>
+
+                                    <!--hidden id fiend-->
+                                    <input type="hidden" th:field="*{id}"/>
+
+                                    <!--first name-->
+                                    <div class="form-group">
+                                        <label class="col-md-4 control-label"></label>
+                                        <div class="col-md-4 inputGroupContainer">
+                                            <div class="input-group">
+                                                <input th:type="text" th:field="*{firstName}" placeholder="First Name"/><br />
+                                                <span th:if="${#fields.hasErrors('firstName')}"
+                                                      th:errors="*{firstName}"></span><br />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--last name-->
+                                    <div class="form-group">
+                                        <label class="col-md-4 control-label"></label>
+                                        <div class="col-md-4 inputGroupContainer">
+                                            <div class="input-group">
+                                                <input th:type="text" th:field="*{lastName}" placeholder="Last Name"/><br />
+                                                <span th:if="${#fields.hasErrors('lastName')}"
+                                                      th:errors="*{lastName}"></span><br />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--phone number-->
+                                    <div class="form-group">
+                                        <label class="col-md-4 control-label"></label>
+                                        <div class="col-md-4 inputGroupContainer">
+                                            <div class="input-group">
+                                                <input th:type="text" th:field="*{phoneNumber}" placeholder="Phone Number"/><br />
+                                                <span th:if="${#fields.hasErrors('phoneNumber')}"
+                                                      th:errors="*{phoneNumber}"></span><br />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--email-->
+                                    <div class="form-group">
+                                        <label class="col-md-4 control-label"></label>
+                                        <div class="col-md-4 inputGroupContainer">
+                                            <div class="input-group">
+                                                <input th:type="text" th:field="*{email}" placeholder="Email"/><br />
+                                                <span th:if="${#fields.hasErrors('email')}"
+                                                      th:errors="*{email}"></span><br />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--school-->
+                                    <div class="form-group">
+                                        <label class="col-md-4 control-label"></label>
+                                        <div class="col-md-4 inputGroupContainer">
+                                            <div class="input-group">
+                                                <input th:type="text" th:field="*{school}" placeholder="School"/><br />
+                                                <span th:if="${#fields.hasErrors('school')}"
+                                                      th:errors="*{school}"></span><br />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--buttons-->
+                                    <div class="form-group">
+                                        <label class="col-md-4 control-label"></label>
+                                        <div class="col-md-4 inputGroupContainer">
+                                            <button type="submit" value="Add Student" class="btn btn-primary">Save Student</button>
+                                            <button type="reset" value="Clear Form" class="btn btn-primary">Clear Form</button>
+                                        </div>
+                                    </div>
+
+
+                                </fieldset>
+                            </form>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Menu Toggle Script -->
+    <script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+    </script>
+
+
+</body>
+
+</html>
