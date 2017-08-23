@@ -3,11 +3,13 @@
 <head lang="en">
     <meta charset="UTF-8"/>
     <title>Student Form</title>
-    <th:block th:replace="base::header"></th:block>
+    <!--<th:block th:replace="base::header"></th:block>-->
+    <th:block th:replace="base::sidebarHeader"></th:block>
 </head>
 <body>
-    <th:block th:replace="base::navigation"></th:block>
-        <div class="container">
+    <!--<th:block th:replace="base::navigation"></th:block>-->
+    <th:block th:replace="base::sidebar"></th:block>
+        <div id="wrapper">
             <form class="well form-horizontal"
                     action="#"
                     th:action="@{/}"
